@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.glucosecalculator">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Berechtigung für xDrip+ Broadcasts -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -9,30 +9,19 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="Glukose Rechner"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GlucoseCalculator">
+        android:theme="@style/Theme.AppCompat.Light"
+        tools:targetApi="31">
         
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="Glukose Rechner"
-            android:theme="@style/Theme.GlucoseCalculator">
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <!-- BroadcastReceiver für xDrip+ (optional für Hintergrund-Updates) -->
-        <receiver
-            android:name=".XDripReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.eveningoutpost.dexdrip.BgEstimate" />
-            </intent-filter>
-        </receiver>
         
     </application>
 
