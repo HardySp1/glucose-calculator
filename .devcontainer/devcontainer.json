@@ -1,21 +1,26 @@
 {
-  "name": "Android Development",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "name": "Android Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  
   "features": {
     "ghcr.io/devcontainers/features/java:1": {
       "version": "17"
-    },
-    "ghcr.io/devcontainers/features/gradle:1": {
-      "version": "latest"
     }
   },
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  
+  "postCreateCommand": "bash -c 'chmod +x .devcontainer/setup.sh && ./.devcontainer/setup.sh'",
+  
+  "remoteUser": "vscode",
+  
   "customizations": {
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
         "mathiasfrohlich.Kotlin"
-      ]
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
     }
   }
 }
